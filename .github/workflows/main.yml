@@ -1,0 +1,21 @@
+name: Sync to Hugging Face space
+
+on:
+  push:
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync-to-space:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Push to space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: 
+          git push --force https://Shivakumar25:$HF_TOKEN@https://huggingface.co/spaces/Shivakumar25/ml main
