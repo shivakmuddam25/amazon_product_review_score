@@ -1,10 +1,12 @@
 import streamlit as st
-from PIL import Image
 import pickle
 import numpy as np
 import pandas as pd
 import re
 import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.corpus import stopwords
 
