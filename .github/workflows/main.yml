@@ -18,4 +18,4 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: 
-          git push --force https://Shivakumar25:$HF_TOKEN@https://huggingface.co/spaces/Shivakumar25/ml main
+          git push --force https://Shivakumar25:$HF_TOKEN@huggingface.co/spaces/Shivakumar25/ml main
