@@ -49,10 +49,10 @@ def set_unique_words(lem_text):
 def load_module(lem_text):
     if int(len(lem_text)) != 1:
         # st.write(len(lem_text))
-        # rf_bow_amazon_rev = pickle.load(open("rf_amazon_rev_bow.sav", "rb"))
-        # rf_amazon_rev = pickle.load(open("rf_amazon_rev.sav", "rb"))
-        rf_bow_amazon_rev = joblib.load(hf_hub_download(REPO_ID, filename=FILENAME1))
-        rf_amazon_rev = joblib.load(hf_hub_download(REPO_ID, filename=FILENAME2))
+        rf_bow_amazon_rev = pickle.load(open("rf_amazon_rev_bow.sav", "rb"))
+        rf_amazon_rev = pickle.load(open("rf_amazon_rev.sav", "rb"))
+#         rf_bow_amazon_rev = joblib.load(hf_hub_download(REPO_ID, filename=FILENAME1))
+#         rf_amazon_rev = joblib.load(hf_hub_download(REPO_ID, filename=FILENAME2))
         X_test_ = rf_bow_amazon_rev.transform([lem_text])  
         score = rf_amazon_rev.predict(X_test_.toarray().reshape(1, -1))
         return score[0]
